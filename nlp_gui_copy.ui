@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>860</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NLP Text Processing System</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow {
+    background-color: #0d1117;
+}
+QWidget#centralwidget {
+    background-color: #0d1117;
+}
+QLabel {
+    color: #8b949e;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+QLabel#labelTitle {
+    color: #58a6ff;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+QLabel#labelSubtitle {
+    color: #3d444d;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+QTextEdit {
+    background-color: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #21262d;
+    border-radius: 6px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+    padding: 10px;
+    selection-background-color: #1f6feb;
+}
+QTextEdit:focus {
+    border: 1px solid #388bfd;
+}
+QPushButton#btnLoad {
+    background-color: #21262d;
+    color: #3fb950;
+    border: 1px solid #3fb950;
+    border-radius: 6px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0px 16px;
+}
+QPushButton#btnLoad:hover {
+    background-color: #3fb950;
+    color: #0d1117;
+}
+QPushButton#btnLoad:pressed {
+    background-color: #2ea043;
+    color: #0d1117;
+}
+QPushButton#btnProcess {
+    background-color: #21262d;
+    color: #f78166;
+    border: 1px solid #f78166;
+    border-radius: 6px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0px 16px;
+}
+QPushButton#btnProcess:hover {
+    background-color: #f78166;
+    color: #0d1117;
+}
+QPushButton#btnProcess:pressed {
+    background-color: #e05c42;
+    color: #0d1117;
+}
+QPushButton#btnChart {
+    background-color: #21262d;
+    color: #79c0ff;
+    border: 1px solid #388bfd;
+    border-radius: 6px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0px 16px;
+}
+QPushButton#btnChart:hover {
+    background-color: #388bfd;
+    color: #0d1117;
+}
+QPushButton#btnChart:pressed {
+    background-color: #1f6feb;
+    color: #0d1117;
+}
+QFrame#divider {
+    background-color: #21262d;
+}
+QFrame#headerFrame {
+    background-color: #161b22;
+    border-bottom: 1px solid #21262d;
+    border-radius: 0px;
+}
+QFrame#statsFrame {
+    background-color: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+}
+QLabel#statValue {
+    color: #58a6ff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+QLabel#statLabel {
+    color: #3d444d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+QScrollBar:vertical {
+    background: #161b22;
+    width: 8px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background: #30363d;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #484f58;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+
+   <!-- HEADER FRAME -->
+   <widget class="QFrame" name="headerFrame">
+    <property name="geometry">
+     <rect><x>0</x><y>0</y><width>1280</width><height>70</height></rect>
+    </property>
+    <widget class="QLabel" name="labelTitle">
+     <property name="geometry">
+      <rect><x>30</x><y>12</y><width>500</width><height>28</height></rect>
+     </property>
+     <property name="text">
+      <string>NLP TEXT PROCESSOR</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSubtitle">
+     <property name="geometry">
+      <rect><x>30</x><y>42</y><width>500</width><height>18</height></rect>
+     </property>
+     <property name="text">
+      <string>TOKENIZE · STEM · LEMMATIZE · VISUALIZE</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnLoad">
+     <property name="geometry">
+      <rect><x>820</x><y>17</y><width>130</width><height>36</height></rect>
+     </property>
+     <property name="text">
+      <string>▲  LOAD FILE</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnProcess">
+     <property name="geometry">
+      <rect><x>966</x><y>17</y><width>140</width><height>36</height></rect>
+     </property>
+     <property name="text">
+      <string>⚙  PROCESS</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnChart">
+     <property name="geometry">
+      <rect><x>1120</x><y>17</y><width>130</width><height>36</height></rect>
+     </property>
+     <property name="text">
+      <string>◈  CHART</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- STATS ROW -->
+   <widget class="QFrame" name="statsFrame">
+    <property name="geometry">
+     <rect><x>30</x><y>86</y><width>1220</width><height>72</height></rect>
+    </property>
+    <widget class="QLabel" name="statValue1">
+     <property name="geometry">
+      <rect><x>30</x><y>8</y><width>120</width><height>28</height></rect>
+     </property>
+     <property name="objectName"><string>statValue</string></property>
+     <property name="text"><string>—</string></property>
+    </widget>
+    <widget class="QLabel" name="statLabel1">
+     <property name="geometry">
+      <rect><x>30</x><y>38</y><width>140</width><height>18</height></rect>
+     </property>
+     <property name="objectName"><string>statLabel</string></property>
+     <property name="text"><string>ORIGINAL TOKENS</string></property>
+    </widget>
+    <widget class="QLabel" name="statValue2">
+     <property name="geometry">
+      <rect><x>210</x><y>8</y><width>120</width><height>28</height></rect>
+     </property>
+     <property name="objectName"><string>statValue</string></property>
+     <property name="text"><string>—</string></property>
+    </widget>
+    <widget class="QLabel" name="statLabel2">
+     <property name="geometry">
+      <rect><x>210</x><y>38</y><width>160</width><height>18</height></rect>
+     </property>
+     <property name="objectName"><string>statLabel</string></property>
+     <property name="text"><string>AFTER CLEANING</string></property>
+    </widget>
+    <widget class="QLabel" name="statValue3">
+     <property name="geometry">
+      <rect><x>410</x><y>8</y><width>120</width><height>28</height></rect>
+     </property>
+     <property name="objectName"><string>statValue</string></property>
+     <property name="text"><string>—</string></property>
+    </widget>
+    <widget class="QLabel" name="statLabel3">
+     <property name="geometry">
+      <rect><x>410</x><y>38</y><width>140</width><height>18</height></rect>
+     </property>
+     <property name="objectName"><string>statLabel</string></property>
+     <property name="text"><string>UNIQUE WORDS</string></property>
+    </widget>
+    <widget class="QLabel" name="statValue4">
+     <property name="geometry">
+      <rect><x>610</x><y>8</y><width>120</width><height>28</height></rect>
+     </property>
+     <property name="objectName"><string>statValue</string></property>
+     <property name="text"><string>—</string></property>
+    </widget>
+    <widget class="QLabel" name="statLabel4">
+     <property name="geometry">
+      <rect><x>610</x><y>38</y><width>140</width><height>18</height></rect>
+     </property>
+     <property name="objectName"><string>statLabel</string></property>
+     <property name="text"><string>STOP WORDS RM</string></property>
+    </widget>
+    <widget class="QLabel" name="statValue5">
+     <property name="geometry">
+      <rect><x>810</x><y>8</y><width>200</width><height>28</height></rect>
+     </property>
+     <property name="objectName"><string>statValue</string></property>
+     <property name="text"><string>—</string></property>
+    </widget>
+    <widget class="QLabel" name="statLabel5">
+     <property name="geometry">
+      <rect><x>810</x><y>38</y><width>180</width><height>18</height></rect>
+     </property>
+     <property name="objectName"><string>statLabel</string></property>
+     <property name="text"><string>TOP WORD</string></property>
+    </widget>
+   </widget>
+
+   <!-- ORIGINAL TEXT -->
+   <widget class="QLabel" name="labelOriginal">
+    <property name="geometry">
+     <rect><x>30</x><y>176</y><width>200</width><height>20</height></rect>
+    </property>
+    <property name="text"><string>ORIGINAL TEXT</string></property>
+   </widget>
+   <widget class="QTextEdit" name="txtOriginal">
+    <property name="geometry">
+     <rect><x>30</x><y>200</y><width>1220</width><height>110</height></rect>
+    </property>
+    <property name="placeholderText">
+     <string>Load a .txt file to begin analysis...</string>
+    </property>
+   </widget>
+
+   <!-- CLEANED TEXT -->
+   <widget class="QLabel" name="labelClean">
+    <property name="geometry">
+     <rect><x>30</x><y>326</y><width>200</width><height>20</height></rect>
+    </property>
+    <property name="text"><string>CLEANED TEXT</string></property>
+   </widget>
+   <widget class="QTextEdit" name="txtClean">
+    <property name="geometry">
+     <rect><x>30</x><y>350</y><width>1220</width><height>110</height></rect>
+    </property>
+    <property name="placeholderText">
+     <string>Processed and lemmatized output will appear here...</string>
+    </property>
+   </widget>
+
+   <!-- TOKENS -->
+   <widget class="QLabel" name="labelTokens">
+    <property name="geometry">
+     <rect><x>30</x><y>476</y><width>200</width><height>20</height></rect>
+    </property>
+    <property name="text"><string>FIRST 20 TOKENS</string></property>
+   </widget>
+   <widget class="QTextEdit" name="txtTokens">
+    <property name="geometry">
+     <rect><x>30</x><y>500</y><width>1220</width><height>70</height></rect>
+    </property>
+    <property name="placeholderText">
+     <string>Token list will appear here...</string>
+    </property>
+   </widget>
+
+   <!-- BOTTOM ROW: Compare + Top Words -->
+   <widget class="QLabel" name="labelCompare">
+    <property name="geometry">
+     <rect><x>30</x><y>586</y><width>300</width><height>20</height></rect>
+    </property>
+    <property name="text"><string>STEM vs LEMMA COMPARISON</string></property>
+   </widget>
+   <widget class="QTextEdit" name="txtCompare">
+    <property name="geometry">
+     <rect><x>30</x><y>610</y><width>590</width><height>210</height></rect>
+    </property>
+    <property name="placeholderText">
+     <string>word | stem | lemma</string>
+    </property>
+   </widget>
+
+   <widget class="QLabel" name="labelTop">
+    <property name="geometry">
+     <rect><x>660</x><y>586</y><width>300</width><height>20</height></rect>
+    </property>
+    <property name="text"><string>TOP 20 WORDS</string></property>
+   </widget>
+   <widget class="QTextEdit" name="txtTop">
+    <property name="geometry">
+     <rect><x>660</x><y>610</y><width>590</width><height>210</height></rect>
+    </property>
+    <property name="placeholderText">
+     <string>Frequency analysis will appear here...</string>
+    </property>
+   </widget>
+
+   <!-- Hidden word count (kept for compatibility, not visible) -->
+   <widget class="QTextEdit" name="txtCount">
+    <property name="geometry">
+     <rect><x>0</x><y>-100</y><width>1</width><height>1</height></rect>
+    </property>
+   </widget>
+
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
